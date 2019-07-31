@@ -1,13 +1,10 @@
-import * as THREE from 'three';
+import vertexShader from './shader/vertexShader.vert';
+import fragmentShader from './shader/fragmentShader.frag';
 
-import vertexShader from './vertexShader.vert';
-import fragmentShader from './fragmentShader.frag';
-import source from 'raw-loader!glslify-loader!./module.glsl'
-
-// let material = new THREE.ShaderMaterial({
-//   vertexShader: vertexShader,
-//   fragmentShader: fragmentShader
-// });
+let material = new THREE.ShaderMaterial({
+  vertexShader: vertexShader,
+  fragmentShader: fragmentShader
+});
 
 window.addEventListener('DOMContentLoaded', () => {
 
@@ -30,7 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // 箱を作成
   const geometry = new THREE.BoxGeometry(1, 1, 1);
-  const material = new THREE.MeshPhongMaterial({color: 0xff0000});
+  const material = new THREE.MeshPhongMaterial({color: 0x42B8C9});
   const box = new THREE.Mesh(geometry, material);
   box.position.z = -5;
   scene.add(box);
